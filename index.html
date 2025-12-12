@@ -4,54 +4,25 @@
   <meta charset="UTF-8" />
   <title>CU Denver | English Writing, Rhetoric & Technology (ENWT)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="CU Denver's English Writing, Rhetoric & Technology (ENWT) degree: a flexible, future-focused English program that integrates writing, technology, and AI literacy. Study online, on campus, or hybrid." />
+  <meta name="description" content="CU Denver's English Writing, Rhetoric & Technology (ENWT) degree: a flexible, future-focused English program integrating writing, technology, and AI literacy." />
 
   <style>
     :root {
       --cu-black: #000000;
       --cu-gold: #cfb87c;
-      --cu-dark-gray: #434343;
-      --cu-light-gray: #bcbcbc;
       --cu-white: #ffffff;
+      --cu-gray: #444;
       --max-width: 1100px;
-      --radius-lg: 16px;
-      --radius-md: 10px;
-      --shadow-soft: 0 14px 30px rgba(0, 0, 0, 0.12);
-    }
-
-    * {
-      box-sizing: border-box;
     }
 
     body {
       margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-      background-color: var(--cu-white);
-      color: var(--cu-dark-gray);
       line-height: 1.6;
+      color: var(--cu-gray);
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    /* Layout helpers */
-    .page-wrap {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    main {
-      flex: 1;
-    }
+    a { text-decoration: none; color: inherit; }
 
     .container {
       max-width: var(--max-width);
@@ -59,988 +30,202 @@
       padding: 0 1.25rem;
     }
 
-    /* Header / Nav */
+    /* ================= HEADER ================= */
+
     header {
-      background-color: var(--cu-black);
+      background: var(--cu-black);
       color: var(--cu-white);
-      position: sticky;
-      top: 0;
-      z-index: 50;
+      text-align: center;
+      padding: 1.2rem 0 0.8rem;
+      border-bottom: 1px solid rgba(207,184,124,.3);
     }
 
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.75rem 0;
-      gap: 1rem;
+    .cu-logo {
+      display: inline-flex;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: .6rem;
     }
 
-    .nav-left {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    .brand-mark {
-      width: 40px;
-      height: 40px;
-      border-radius: 8px;
-      border: 2px solid var(--cu-gold);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .cu-logo span {
+      padding: .4rem .6rem;
       font-weight: 700;
-      font-size: 0.85rem;
+      letter-spacing: .08em;
     }
 
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-      gap: 0.1rem;
+    .cu-logo .cu { background: #000; color: var(--cu-gold); }
+    .cu-logo .denver { background: var(--cu-gold); color: #000; }
+
+    .header-text {
+      font-size: .85rem;
+      opacity: .9;
     }
 
-    .brand-text span:first-child {
-      font-size: 0.8rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      opacity: 0.85;
+    .apply-now {
+      margin-top: .8rem;
     }
 
-    .brand-text span:last-child {
-      font-size: 0.95rem;
-      font-weight: 600;
-    }
+    /* ================= BUTTONS ================= */
 
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 1.25rem;
-      font-size: 0.9rem;
-    }
-
-    .nav-links a {
-      position: relative;
-      padding-bottom: 0.15rem;
-    }
-
-    .nav-links a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 0;
-      height: 2px;
-      background-color: var(--cu-gold);
-      transition: width 0.2s ease-out;
-    }
-
-    .nav-links a:hover::after,
-    .nav-links a:focus-visible::after {
-      width: 100%;
-    }
-
-    .nav-cta {
+    .btn {
+      display: inline-block;
+      padding: .75rem 1.4rem;
       border-radius: 999px;
-      padding: 0.4rem 0.9rem;
-      background-color: var(--cu-gold);
-      color: var(--cu-black);
       font-weight: 600;
-      border: 1px solid var(--cu-gold);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-size: 0.85rem;
+      font-size: .9rem;
+      margin: .4rem;
     }
 
-    .nav-cta span {
-      font-size: 1rem;
-      line-height: 1;
+    .btn-gold {
+      background: var(--cu-gold);
+      color: #000;
     }
 
-    /* Hero */
+    .btn-outline {
+      border: 1px solid #fff;
+      color: #fff;
+    }
+
+    /* ================= HERO ================= */
+
     .hero {
-      background: radial-gradient(circle at top left, #222222 0, var(--cu-black) 55%);
-      color: var(--cu-white);
-      padding: 3.5rem 0 3rem;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2.3fr);
-      gap: 2.5rem;
-      align-items: center;
-    }
-
-    .eyebrow {
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      font-size: 0.8rem;
-      color: var(--cu-gold);
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-
-    .hero h1 {
-      font-size: clamp(2.1rem, 3.2vw + 1rem, 3.1rem);
-      margin: 0 0 0.75rem;
-      line-height: 1.1;
-    }
-
-    .hero h1 span {
-      color: var(--cu-gold);
-    }
-
-    .hero-tagline {
-      font-size: 1.02rem;
-      max-width: 36rem;
-      color: #e5e5e5;
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      padding: 0.3rem 0.8rem;
-      font-size: 0.8rem;
-      color: #f5f5f5;
-      margin-bottom: 0.9rem;
-    }
-
-    .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background-color: var(--cu-gold);
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-      margin-bottom: 1.25rem;
-    }
-
-    .btn-primary,
-    .btn-secondary {
-      border-radius: 999px;
-      padding: 0.75rem 1.4rem;
-      font-size: 0.9rem;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      cursor: pointer;
-      border: 1px solid transparent;
-      text-decoration: none;
-      transition: transform 0.12s ease-out, box-shadow 0.12s ease-out, background-color 0.15s ease-out, color 0.15s ease-out, border-color 0.15s ease-out;
-      white-space: nowrap;
-    }
-
-    .btn-primary {
-      background-color: var(--cu-gold);
-      color: var(--cu-black);
-      border-color: var(--cu-gold);
-      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.35);
-    }
-
-    .btn-secondary {
-      background-color: transparent;
-      color: var(--cu-white);
-      border-color: rgba(255, 255, 255, 0.45);
-    }
-
-    .btn-primary:hover,
-    .btn-primary:focus-visible,
-    .btn-secondary:hover,
-    .btn-secondary:focus-visible {
-      transform: translateY(-1px);
-      box-shadow: 0 18px 30px rgba(0, 0, 0, 0.4);
-    }
-
-    .btn-secondary:hover,
-    .btn-secondary:focus-visible {
-      border-color: var(--cu-gold);
-    }
-
-    .hero-meta {
-      font-size: 0.82rem;
-      opacity: 0.9;
-    }
-
-    .hero-meta strong {
-      color: var(--cu-gold);
-    }
-
-    .hero-card {
-      background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(207, 184, 124, 0.08));
-      border-radius: var(--radius-lg);
-      padding: 1.6rem 1.4rem;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      box-shadow: var(--shadow-soft);
-    }
-
-    .hero-card h2 {
-      font-size: 1.05rem;
-      margin: 0 0 0.7rem;
-      color: var(--cu-gold);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .hero-card p {
-      font-size: 0.9rem;
-      margin: 0 0 0.75rem;
-      color: #f5f5f5;
-    }
-
-    .hero-bullets {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 0.85rem;
-      font-size: 0.88rem;
-      color: #f0f0f0;
-    }
-
-    .hero-bullets li {
-      margin-bottom: 0.35rem;
-      display: flex;
-      gap: 0.4rem;
-    }
-
-    .hero-bullets li::before {
-      content: "•";
-      color: var(--cu-gold);
-      margin-top: 0;
-    }
-
-    .hero-note {
-      font-size: 0.78rem;
-      color: #e0e0e0;
-      opacity: 0.9;
-    }
-
-    /* Section base */
-    section {
+      background: radial-gradient(circle at top left, #222, #000);
+      color: #fff;
       padding: 3rem 0;
     }
 
-    section:nth-of-type(even) {
-      background-color: #f7f7f7;
-    }
+    .hero h1 span { color: var(--cu-gold); }
 
-    .section-header {
-      max-width: 42rem;
-      margin-bottom: 1.8rem;
-    }
+    /* ================= SECTIONS ================= */
 
-    .section-eyebrow {
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      font-size: 0.78rem;
-      color: var(--cu-gold);
-      font-weight: 600;
-      margin-bottom: 0.3rem;
-    }
+    section { padding: 3rem 0; }
+    section:nth-child(even) { background: #f7f7f7; }
 
-    .section-title {
-      margin: 0 0 0.5rem;
-      font-size: 1.6rem;
-      color: var(--cu-black);
-    }
-
-    .section-lede {
-      margin: 0;
-      font-size: 0.98rem;
-      color: var(--cu-dark-gray);
-    }
-
-    /* Why ENWT */
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.2rem;
-      margin-top: 1.25rem;
-    }
-
-    .feature-card {
-      background-color: var(--cu-white);
-      border-radius: var(--radius-md);
-      padding: 1.1rem 1.1rem 1rem;
-      border: 1px solid rgba(0, 0, 0, 0.06);
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-      font-size: 0.9rem;
-    }
-
-    .feature-label {
-      font-size: 0.76rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--cu-gold);
-      font-weight: 600;
-    }
-
-    .feature-title {
-      font-weight: 600;
-      color: var(--cu-black);
-      margin: 0;
-      font-size: 0.98rem;
-    }
-
-    .feature-card p {
-      margin: 0;
-    }
-
-    /* Certificates */
     .cert-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.1rem;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
     }
 
     .cert-card {
-      background-color: var(--cu-black);
-      color: var(--cu-white);
-      border-radius: var(--radius-md);
-      padding: 1rem 1rem 0.9rem;
-      border: 1px solid #222;
-      box-shadow: var(--shadow-soft);
-      font-size: 0.9rem;
-      position: relative;
-      overflow: hidden;
+      background: #000;
+      color: #fff;
+      padding: 1.2rem;
+      border-radius: 10px;
+      border: 1px solid rgba(207,184,124,.4);
     }
 
-    .cert-tag {
-      display: inline-block;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--cu-gold);
-      margin-bottom: 0.35rem;
-    }
+    .cert-card a { color: var(--cu-gold); font-weight: 600; }
 
-    .cert-name {
-      margin: 0 0 0.4rem;
-      font-weight: 600;
-      font-size: 0.98rem;
-    }
+    /* ================= CTA ================= */
 
-    .cert-card p {
-      margin: 0;
-      color: #f1f1f1;
-    }
-
-    .cert-pill {
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      padding: 0.2rem 0.7rem;
-      font-size: 0.75rem;
-      display: inline-block;
-      margin-top: 0.55rem;
-      opacity: 0.95;
-    }
-
-    .cert-glow {
-      position: absolute;
-      inset: auto -60px -60px auto;
-      width: 120px;
-      height: 120px;
-      background: radial-gradient(circle, rgba(207, 184, 124, 0.5), transparent 60%);
-      opacity: 0.5;
-      pointer-events: none;
-    }
-
-    /* Learning outcomes & careers */
-    .two-col {
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-      gap: 2rem;
-      align-items: flex-start;
-    }
-
-    .checklist {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      font-size: 0.92rem;
-    }
-
-    .checklist li {
-      display: flex;
-      gap: 0.6rem;
-      margin-bottom: 0.55rem;
-      align-items: flex-start;
-    }
-
-    .check-icon {
-      margin-top: 0.1rem;
-      width: 18px;
-      height: 18px;
-      border-radius: 999px;
-      border: 2px solid var(--cu-gold);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.7rem;
-      color: var(--cu-gold);
-      flex-shrink: 0;
-    }
-
-    .pill-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      font-size: 0.83rem;
-      margin: 0.6rem 0 0;
-    }
-
-    .pill-list span {
-      border-radius: 999px;
-      border: 1px solid rgba(0, 0, 0, 0.08);
-      background-color: #f1f1f1;
-      padding: 0.3rem 0.7rem;
-      white-space: nowrap;
-    }
-
-    .card-outline {
-      border-radius: var(--radius-md);
-      border: 1px solid rgba(0, 0, 0, 0.12);
-      background-color: var(--cu-white);
-      padding: 1rem 1.1rem;
-      font-size: 0.88rem;
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
-    }
-
-    .card-outline h3 {
-      margin-top: 0;
-      margin-bottom: 0.6rem;
-      font-size: 1rem;
-      color: var(--cu-black);
-    }
-
-    /* Alumni / value narrative */
-    .value-card {
-      background: linear-gradient(135deg, #f5f2e8, #ffffff);
-      border-radius: var(--radius-lg);
-      padding: 1.6rem 1.5rem;
-      border: 1px solid #e1d6b8;
-      box-shadow: var(--shadow-soft);
-      font-size: 0.95rem;
-    }
-
-    .value-card h3 {
-      margin-top: 0;
-      margin-bottom: 0.6rem;
-      font-size: 1.1rem;
-      color: var(--cu-black);
-    }
-
-    .value-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.1fr);
-      gap: 1.6rem;
-      align-items: flex-start;
-      margin-top: 1.5rem;
-    }
-
-    .quote-card {
-      border-radius: var(--radius-md);
-      background-color: var(--cu-black);
-      color: var(--cu-white);
-      padding: 1.2rem 1.1rem;
-      font-size: 0.86rem;
-      border: 1px solid #222;
-      box-shadow: var(--shadow-soft);
-    }
-
-    .quote-card p {
-      margin-top: 0;
-      margin-bottom: 0.5rem;
-    }
-
-    .quote-name {
-      font-weight: 600;
-      font-size: 0.85rem;
-      color: var(--cu-gold);
-    }
-
-    .quote-role {
-      font-size: 0.78rem;
-      opacity: 0.8;
-    }
-
-    /* Flexible delivery */
-    .delivery-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1rem;
-      margin-top: 1.3rem;
-    }
-
-    .delivery-card {
-      border-radius: var(--radius-md);
-      background-color: var(--cu-white);
-      border: 1px solid rgba(0, 0, 0, 0.08);
-      padding: 1rem 1rem 0.9rem;
-      font-size: 0.9rem;
-    }
-
-    .delivery-title {
-      font-size: 0.96rem;
-      font-weight: 600;
-      margin: 0 0 0.3rem;
-      color: var(--cu-black);
-    }
-
-    .delivery-tag {
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--cu-gold);
-      margin-bottom: 0.2rem;
-    }
-
-    .delivery-card p {
-      margin: 0;
-    }
-
-    /* Call to action */
     .cta {
-      background-color: var(--cu-black);
-      color: var(--cu-white);
-      padding: 2.6rem 0 2.4rem;
+      background: #000;
+      color: #fff;
+      text-align: center;
+      padding: 3rem 0;
     }
 
-    .cta-inner {
-      display: flex;
-      flex-direction: column;
-      gap: 1.4rem;
-      align-items: flex-start;
-    }
-
-    .cta h2 {
-      margin: 0;
-      font-size: 1.7rem;
-    }
-
-    .cta p {
-      margin: 0;
-      max-width: 32rem;
-      font-size: 0.96rem;
-      color: #e2e2e2;
-    }
-
-    .cta-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.9rem;
-    }
-
-    /* Footer */
     footer {
-      background-color: #111111;
-      color: #d5d5d5;
-      padding: 1.1rem 0 1rem;
-      font-size: 0.8rem;
-    }
-
-    footer .foot-row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 0.7rem;
-      align-items: center;
-    }
-
-    footer a {
-      text-decoration: underline;
-      text-decoration-thickness: 1px;
-      text-underline-offset: 2px;
-      color: var(--cu-gold);
-    }
-
-    /* Responsive */
-    @media (max-width: 900px) {
-      .hero-grid,
-      .two-col,
-      .value-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .hero {
-        padding-top: 2.5rem;
-      }
-
-      .nav-links {
-        display: none;
-      }
-    }
-
-    @media (max-width: 720px) {
-      .feature-grid,
-      .cert-grid,
-      .delivery-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      section {
-        padding: 2.4rem 0;
-      }
+      background: #111;
+      color: #ccc;
+      text-align: center;
+      padding: 1rem;
+      font-size: .8rem;
     }
   </style>
 </head>
+
 <body>
-  <div class="page-wrap">
-    <header>
-      <div class="container nav">
-        <div class="nav-left">
-          <div class="brand-mark">
-            <span>ENWT</span>
-          </div>
-          <div class="brand-text">
-            <span>CU Denver</span>
-            <span>English Writing, Rhetoric &amp; Technology</span>
-          </div>
-        </div>
 
-        <nav class="nav-links" aria-label="Main navigation">
-          <a href="#overview">Overview</a>
-          <a href="#certificates">Certificates</a>
-          <a href="#learning">What You’ll Learn</a>
-          <a href="#careers">Careers</a>
-          <a href="#value">Why This Degree</a>
-          <a href="#flexibility">Flexible Options</a>
-          <a href="#cta" class="nav-cta">
-            <span>→</span> Learn more
-          </a>
-        </nav>
-      </div>
-    </header>
+<header>
+  <div class="container">
+    <div class="cu-logo">
+      <span class="cu">CU</span><span class="denver">Denver</span>
+    </div>
+    <div class="header-text">
+      English Writing, Rhetoric & Technology (ENWT)<br>
+      College of Liberal Arts & Sciences · Department of English
+    </div>
 
-    <main>
-      <!-- Hero -->
-      <section class="hero" id="overview">
-        <div class="container hero-grid">
-          <div>
-            <div class="eyebrow">Bachelor of Arts • English</div>
-            <h1>
-              English Writing, Rhetoric &amp; Technology
-              <span>(ENWT)</span>
-            </h1>
-            <p class="hero-tagline">
-              A future-focused English degree that combines writing, rhetoric, technology, and AI literacy—for students who want real skills, real credentials, and real career pathways.
-            </p>
-
-            <div class="hero-pill">
-              <span class="dot"></span>
-              <span>Study online, on campus, or a mix of both.</span>
-            </div>
-
-            <div class="hero-actions">
-              <a class="btn-primary" href="https://online.ucdenver.edu/programs/undergraduate/online-major-english-writing-rhetoric-and-technology-bachelors" target="_blank" rel="noopener noreferrer">
-                Learn more about the ENWT program
-                <span>↗</span>
-              </a>
-              <a class="btn-secondary" href="https://clas.ucdenver.edu/english/meet-our-alumni" target="_blank" rel="noopener noreferrer">
-                See what our alumni are doing
-                <span>↗</span>
-              </a>
-            </div>
-
-            <p class="hero-meta">
-              <strong>One excellent option to consider</strong> if you’re exploring English, writing, media, or communication degrees—especially if you want the flexibility of a high-quality
-              online or hybrid experience.
-            </p>
-          </div>
-
-          <aside class="hero-card" aria-label="Program highlights">
-            <h2>Why ENWT at CU Denver?</h2>
-            <p>
-              One excellent option to consider is CU Denver's English Writing, Rhetoric, and Technology (ENWT) degree. You can complete this degree online, on campus, or through a combination of both.
-            </p>
-            <ul class="hero-bullets">
-              <li>The same faculty who teach on campus also teach online — no robots teaching here!</li>
-              <li>Earn stackable, career-focused certificates along the way.</li>
-              <li>Build a professional portfolio that showcases your writing, digital, and AI-enhanced skills.</li>
-            </ul>
-            <p class="hero-note">
-              You can also earn certificates alongside the degree in areas such as Writing &amp; Editing with AI, Technical &amp; Professional Writing, Teaching English as a Second Language, Grant &amp; Proposal Writing, and Narrative Nonfiction.
-            </p>
-          </aside>
-        </div>
-      </section>
-
-      <!-- Why ENWT -->
-      <section>
-        <div class="container">
-          <div class="section-header">
-            <div class="section-eyebrow">Why ENWT?</div>
-            <h2 class="section-title">An English degree built for today’s writers—and tomorrow’s careers.</h2>
-            <p class="section-lede">
-              ENWT blends strong writing foundations with digital, professional, and AI-enhanced communication. You’ll graduate ready to adapt your skills to new tools, new platforms, and new jobs.
-            </p>
-          </div>
-
-          <div class="feature-grid">
-            <article class="feature-card">
-              <div class="feature-label">Career anchored</div>
-              <h3 class="feature-title">Real-world genres &amp; portfolios</h3>
-              <p>
-                Create workplace documents, digital stories, multimodal projects, and public-facing writing—work you can show employers, grad schools, and internship coordinators.
-              </p>
-            </article>
-
-            <article class="feature-card">
-              <div class="feature-label">AI &amp; tech aware</div>
-              <h3 class="feature-title">Writing with and alongside AI</h3>
-              <p>
-                Learn how to use generative AI responsibly, revise and edit AI-generated drafts, and make informed choices about tools, data, and ethics in your writing practice.
-              </p>
-            </article>
-
-            <article class="feature-card">
-              <div class="feature-label">Student centered</div>
-              <h3 class="feature-title">Flexible, supported pathways</h3>
-              <p>
-                Balance work, family, and school with online, on-campus, or hybrid schedules—while still getting small classes, mentoring, and individual feedback from faculty.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- Certificates -->
-      <section id="certificates">
-        <div class="container">
-          <div class="section-header">
-            <div class="section-eyebrow">Stackable credentials</div>
-            <h2 class="section-title">Certificates you can earn alongside your degree.</h2>
-            <p class="section-lede">
-              ENWT lets you build a degree that speaks directly to employers and graduate programs. Many students complete one or more of these certificates on their path to graduation.
-            </p>
-          </div>
-
-          <div class="cert-grid">
-            <article class="cert-card">
-              <div class="cert-glow" aria-hidden="true"></div>
-              <div class="cert-tag">AI + Writing</div>
-              <h3 class="cert-name">Writing &amp; Editing with AI</h3>
-              <p>Develop advanced skills in using AI tools to draft, revise, and edit while keeping human judgment, ethics, and style at the center.</p>
-              <div class="cert-pill">Future of professional writing</div>
-            </article>
-
-            <article class="cert-card">
-              <div class="cert-tag">Professional pathways</div>
-              <h3 class="cert-name">Technical &amp; Professional Writing</h3>
-              <p>Prepare for roles in UX writing, documentation, business and scientific communication, and other high-demand careers.</p>
-              <div class="cert-pill">Career-ready documents</div>
-            </article>
-
-            <article class="cert-card">
-              <div class="cert-tag">Teaching &amp; language</div>
-              <h3 class="cert-name">Teaching English as a Second Language</h3>
-              <p>Explore language, linguistics, and pedagogy while gaining tools you can use in classrooms, tutoring, and global English contexts.</p>
-              <div class="cert-pill">TESOL-focused expertise</div>
-            </article>
-
-            <article class="cert-card">
-              <div class="cert-tag">Community &amp; impact</div>
-              <h3 class="cert-name">Grant &amp; Proposal Writing</h3>
-              <p>Learn to craft persuasive proposals and funding documents for nonprofits, schools, community groups, and research initiatives.</p>
-              <div class="cert-pill">Writing for change</div>
-            </article>
-
-            <article class="cert-card">
-              <div class="cert-tag">Story &amp; voice</div>
-              <h3 class="cert-name">Narrative Nonfiction</h3>
-              <p>Tell true stories with power and nuance—skills you can apply in journalism, advocacy, content creation, and personal writing.</p>
-              <div class="cert-pill">Story-driven communication</div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- Learning & Careers -->
-      <section id="learning">
-        <div class="container two-col">
-          <div>
-            <div class="section-header">
-              <div class="section-eyebrow">What you’ll learn</div>
-              <h2 class="section-title">Skills that transfer across fields, roles, and technologies.</h2>
-              <p class="section-lede">
-                ENWT students learn to think critically, read carefully, solve problems creatively, and write with clarity, grace, and power—no matter the audience or medium.
-              </p>
-            </div>
-
-            <ul class="checklist">
-              <li>
-                <span class="check-icon">✓</span>
-                <span><strong>Write effectively across contexts</strong> — workplace writing, digital storytelling, public-facing pieces, academic work, and multimodal composition.</span>
-              </li>
-              <li>
-                <span class="check-icon">✓</span>
-                <span><strong>Use emerging technologies strategically</strong> — including AI, collaborative platforms, and digital tools for research, drafting, and revision.</span>
-              </li>
-              <li>
-                <span class="check-icon">✓</span>
-                <span><strong>Communicate with diverse audiences</strong> — through inclusive, rhetorically aware writing that considers purpose, context, and community.</span>
-              </li>
-              <li>
-                <span class="check-icon">✓</span>
-                <span><strong>Build a professional identity</strong> — assemble a portfolio, practice project management, and learn the language of professional communication.</span>
-              </li>
-            </ul>
-          </div>
-
-          <aside id="careers">
-            <div class="card-outline">
-              <h3>What can you do with ENWT?</h3>
-              <p>
-                ENWT graduates work across industries because strong writing, critical thinking, and digital communication skills are in high demand almost everywhere.
-              </p>
-              <div class="pill-list">
-                <span>UX &amp; content strategy</span>
-                <span>Technical &amp; scientific writing</span>
-                <span>Digital marketing &amp; social media</span>
-                <span>Publishing &amp; editing</span>
-                <span>Nonprofit &amp; advocacy writing</span>
-                <span>Tesol &amp; education pathways</span>
-                <span>Public &amp; government communication</span>
-                <span>AI-enhanced writing roles</span>
-              </div>
-            </div>
-          </aside>
-        </div>
-      </section>
-
-      <!-- Value narrative & alumni -->
-      <section id="value">
-        <div class="container">
-          <div class="section-header">
-            <div class="section-eyebrow">Why this degree?</div>
-            <h2 class="section-title">A clear narrative of value—for students, families, and employers.</h2>
-            <p class="section-lede">
-              ENWT is not a “general” English degree. It’s a focused, flexible program that helps students build tangible skills, credentials, and stories they can share with employers and communities.
-            </p>
-          </div>
-
-          <div class="value-card">
-            <h3>What makes ENWT stand out?</h3>
-            <p>
-              Students leave ENWT with <strong>real skills</strong>, <strong>real credentials</strong>, and <strong>real job pathways</strong>. They don’t just say, “I like to write”—they can show employers a portfolio of projects that blend writing, design, research, and technology.
-            </p>
-
-            <div class="value-grid">
-              <div>
-                <ul class="checklist">
-                  <li>
-                    <span class="check-icon">✓</span>
-                    <span><strong>Real skills</strong> in writing, rhetoric, digital communication, and AI-aware composing.</span>
-                  </li>
-                  <li>
-                    <span class="check-icon">✓</span>
-                    <span><strong>Real credentials</strong> through stackable certificates aligned with specific career directions.</span>
-                  </li>
-                  <li>
-                    <span class="check-icon">✓</span>
-                    <span><strong>Real pathways</strong> into roles where writing, editing, storytelling, and communication leadership matter.</span>
-                  </li>
-                </ul>
-              </div>
-
-              <aside>
-                <div class="quote-card">
-                  <p>
-                    “CU Denver’s online program fits into my daily routine because it is essentially always accessible for me. As a nontraditional student who runs a business, being able to complete my BA in English Writing, Rhetoric, and
-                    Technology online made my degree possible.”
-                  </p>
-                  <div class="quote-name">ENWT alum</div>
-                  <div class="quote-role">Online BA student</div>
-                </div>
-              </aside>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Flexible delivery -->
-      <section id="flexibility">
-        <div class="container">
-          <div class="section-header">
-            <div class="section-eyebrow">Flexible delivery</div>
-            <h2 class="section-title">Designed for working students, transfers, and traditional undergraduates.</h2>
-            <p class="section-lede">
-              ENWT meets students where they are—geographically, professionally, and personally. You can complete the degree fully online, fully on campus, or by mixing course formats each semester.
-            </p>
-          </div>
-
-          <div class="delivery-grid">
-            <article class="delivery-card">
-              <div class="delivery-tag">Online</div>
-              <h3 class="delivery-title">Study from anywhere</h3>
-              <p>
-                Take ENWT fully online while working, caregiving, or living outside the Denver metro area—without sacrificing access to CU Denver faculty and resources.
-              </p>
-            </article>
-
-            <article class="delivery-card">
-              <div class="delivery-tag">On campus</div>
-              <h3 class="delivery-title">Urban campus experience</h3>
-              <p>
-                Learn in the heart of downtown Denver, connect with classmates and faculty in person, and take advantage of campus events, organizations, and resources.
-              </p>
-            </article>
-
-            <article class="delivery-card">
-              <div class="delivery-tag">Hybrid</div>
-              <h3 class="delivery-title">Best of both worlds</h3>
-              <p>
-                Mix online and on-campus courses to fit changing work schedules and personal commitments—most ENWT students choose this flexible path.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- CTA -->
-      <section class="cta" id="cta">
-        <div class="container cta-inner">
-          <h2>Ready to explore CU Denver’s English Writing, Rhetoric &amp; Technology degree?</h2>
-          <p>
-            Whether you’re local to the Denver metro area or joining us fully online, ENWT gives you a powerful combination of writing, technology, and AI literacy. It’s an English degree with clear, flexible pathways into meaningful work.
-          </p>
-
-          <div class="cta-actions">
-            <a class="btn-primary" href="https://online.ucdenver.edu/programs/undergraduate/online-major-english-writing-rhetoric-and-technology-bachelors" target="_blank" rel="noopener noreferrer">
-              Learn more about the ENWT program
-              <span>↗</span>
-            </a>
-            <a class="btn-secondary" href="https://clas.ucdenver.edu/english/meet-our-alumni" target="_blank" rel="noopener noreferrer">
-              See what our alumni are doing
-              <span>↗</span>
-            </a>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <div class="container foot-row">
-        <div>© CU Denver – English Writing, Rhetoric &amp; Technology (ENWT)</div>
-        <div>
-          Learn more at
-          <a href="https://clas.ucdenver.edu/english/english-writing-rhetoric-and-technology" target="_blank" rel="noopener noreferrer">
-            clas.ucdenver.edu/english
-          </a>
-        </div>
-      </div>
-    </footer>
+    <div class="apply-now">
+      <a class="btn btn-gold" href="https://www.ucdenver.edu/apply" target="_blank">Apply Now</a>
+    </div>
   </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h1>English Writing, Rhetoric & Technology <span>(ENWT)</span></h1>
+    <p>A future-focused English degree combining writing, rhetoric, technology, and AI literacy.</p>
+
+    <a class="btn btn-gold" href="https://clas.ucdenver.edu/english/english-writing-rhetoric-and-technology" target="_blank">
+      Learn more about the ENWT program
+    </a>
+
+    <a class="btn btn-gold" href="https://online.ucdenver.edu/programs/undergraduate/online-major-english-writing-rhetoric-and-technology-bachelors" target="_blank">
+      Learn more about the online ENWT program
+    </a>
+
+    <a class="btn btn-outline" href="https://clas.ucdenver.edu/english/meet-our-alumni" target="_blank">
+      See what our alumni are doing
+    </a>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Certificates You Can Earn Along the Way</h2>
+
+    <div class="cert-grid">
+      <div class="cert-card">
+        <a href="https://clas.ucdenver.edu/english/current-undergraduate-student-information/writing-editing-ai" target="_blank">
+          Writing and Editing with AI
+        </a>
+        <p>Develop advanced skills for editing and composing with AI tools.</p>
+      </div>
+
+      <div class="cert-card">
+        <a href="https://clas.ucdenver.edu/english/current-undergraduate-student-information/undergraduate-certificate-teaching-english-language" target="_blank">
+          Technical and Professional Writing
+        </a>
+        <p>Prepare for careers in UX, documentation, and professional communication.</p>
+      </div>
+
+      <div class="cert-card">
+        <a href="https://clas.ucdenver.edu/english/current-undergraduate-student-information/undergraduate-certificate-teaching-english-language" target="_blank">
+          Teaching English Language Learners (TESOL)
+        </a>
+        <p>Study language, linguistics, and pedagogy.</p>
+      </div>
+
+      <div class="cert-card">
+        <a href="https://clas.ucdenver.edu/english/current-undergraduate-student-information/what-technical-and-professional-writing-certificate" target="_blank">
+          Grant & Proposal Writing
+        </a>
+        <p>Learn to write persuasive funding proposals.</p>
+      </div>
+
+      <div class="cert-card">
+        <a href="https://clas.ucdenver.edu/english/current-undergraduate-student-information/certificate-creative-nonfiction" target="_blank">
+          Narrative Nonfiction
+        </a>
+        <p>Craft compelling true stories for public audiences.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container">
+    <h2>Ready to apply?</h2>
+    <a class="btn btn-gold" href="https://www.ucdenver.edu/apply" target="_blank">Apply Now</a>
+  </div>
+</section>
+
+<footer>
+  © University of Colorado Denver · English Writing, Rhetoric & Technology (ENWT)
+</footer>
+
 </body>
 </html>
