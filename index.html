@@ -25,6 +25,7 @@
       --max:1100px;
       --radius:14px;
       --shadow:0 10px 24px rgba(0,0,0,.12);
+      --header-offset: 112px; /* used for anchor scroll offset */
     }
 
     *{ box-sizing:border-box; }
@@ -237,7 +238,7 @@
     .hero-meta strong{ color:var(--cu-gold); }
 
     /* ================= SECTIONS ================= */
-    section{ padding:3rem 0; }
+    section{ padding:3rem 0; scroll-margin-top: var(--header-offset); }
     section:not(.hero):not(.cta){ border-top:1px solid rgba(207,184,124,.25); }
     section:nth-of-type(even):not(.hero):not(.cta){ background:var(--cu-light); }
 
@@ -312,7 +313,7 @@
       display:block;
       height:100%;
       border-radius:var(--radius);
-      outline: none;
+      outline:none;
     }
 
     .card-link:focus-visible{
@@ -368,6 +369,7 @@
     /* ================= Responsive ================= */
     @media(max-width:860px){
       .nav-links{ display:none; }
+      :root{ --header-offset: 92px; }
     }
   </style>
 
@@ -423,7 +425,7 @@
       <h1>English Writing, Rhetoric &amp; Technology <span>(ENWT)</span></h1>
 
       <p class="hero-lede">
-        Looking for an <strong>English degree</strong> that leads to real careers?
+        Looking for an <strong>English degree in the Denver metro area</strong> that leads to real careers?
         CU Denver’s ENWT bachelor’s degree blends <strong>professional writing</strong>, <strong>digital communication</strong>,
         <strong>rhetoric</strong>, and <strong>AI literacy</strong> so you can graduate with a portfolio—ready for today’s writing-focused jobs.
       </p>
@@ -610,12 +612,19 @@
   </div>
 </footer>
 
-  <script>
+<!-- Force load at top even if URL has an anchor/hash -->
+<script>
   window.addEventListener("load", function () {
+    // Always start at the top for first paint.
     window.scrollTo(0, 0);
+
+    // If a hash is present, keep it in the URL (for shareability)
+    // but still show the top on load.
+    if (window.location.hash) {
+      history.replaceState(null, "", window.location.pathname + window.location.search + window.location.hash);
+    }
   });
 </script>
-  
 
 </body>
 </html>
