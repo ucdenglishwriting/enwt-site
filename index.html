@@ -18,33 +18,24 @@
   <!-- ✅ Scroll-to-top fix (runs early, before paint) -->
   <script>
     (function () {
-      // Stop the browser from restoring scroll position on refresh/back-forward cache
-      if ("scrollRestoration" in history) {
-        history.scrollRestoration = "manual";
-      }
+      if ("scrollRestoration" in history) history.scrollRestoration = "manual";
 
-      // If the URL has a hash, browsers may auto-jump to that anchor.
-      // Remove it immediately, then restore it later without scrolling.
       var originalHash = window.location.hash;
       if (originalHash) {
         window.__restoreHashAfterLoad = originalHash;
         history.replaceState(null, "", window.location.pathname + window.location.search);
       }
 
-      // Make sure we start at the very top as early as possible
       window.scrollTo(0, 0);
 
-      // DOMContentLoaded is earlier than load and often wins the race
       document.addEventListener("DOMContentLoaded", function () {
         window.scrollTo(0, 0);
       });
 
-      // pageshow fires on normal loads AND when coming from bfcache (back button)
       window.addEventListener("pageshow", function () {
         window.scrollTo(0, 0);
       });
 
-      // After everything is loaded, restore the hash (if there was one) WITHOUT scrolling
       window.addEventListener("load", function () {
         window.scrollTo(0, 0);
         if (window.__restoreHashAfterLoad) {
@@ -98,27 +89,14 @@
       padding:1.1rem 0 .85rem;
     }
 
-    .cu-logo{
-      display:inline-flex;
-      border-radius:10px;
-      overflow:hidden;
-      box-shadow:0 6px 14px rgba(0,0,0,.4);
-      margin-bottom:.55rem;
+    /* Replaces the old “CU Denver” text badge with your provided image */
+    .brand-logo{
+      display:block;
+      width:min(760px, 92vw);
+      height:auto;
+      margin:0 auto .55rem;
+      filter: drop-shadow(0 6px 14px rgba(0,0,0,.45));
     }
-
-    .cu-logo span{
-      padding:.35rem .6rem;
-      font-weight:800;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-      font-size:.85rem;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-    }
-
-    .cu{ background:#000; color:var(--cu-gold); }
-    .denver{ background:var(--cu-gold); color:#000; }
 
     .header-text{
       font-size:.85rem;
@@ -269,16 +247,6 @@
       gap:.85rem;
       margin:1.7rem 0 0.65rem;
     }
-
-    .hero-meta{
-      margin:0.9rem auto 0;
-      max-width:52rem;
-      font-size:.93rem;
-      color:#e2e2e2;
-      opacity:.95;
-    }
-
-    .hero-meta strong{ color:var(--cu-gold); }
 
     /* ================= SECTIONS ================= */
     section{ padding:3rem 0; scroll-margin-top: var(--header-offset); }
@@ -484,6 +452,7 @@
     @media(max-width:860px){
       .nav-links{ display:none; }
       :root{ --header-offset: 92px; }
+      .brand-logo{ width:min(640px, 92vw); }
     }
   </style>
 
@@ -582,9 +551,15 @@
 <body>
 <header>
   <div class="header-top">
-    <div class="cu-logo" aria-hidden="true">
-      <span class="cu">CU</span><span class="denver">Denver</span>
-    </div>
+    <!-- ✅ Replace “CU Denver” text with your image.
+         IMPORTANT: Upload this image into the SAME folder as index.html in your repo.
+         Keep the filename exactly as below, or change the src to match your uploaded filename. -->
+    <img
+      class="brand-logo"
+      src="CampusMark_CUDenver_sd_c_cmyk-2672x400-f1280c8.jpg"
+      alt="University of Colorado Denver"
+    />
+
     <div class="header-text">
       English Writing, Rhetoric &amp; Technology (ENWT)<br>
       College of Liberal Arts &amp; Sciences · Department of English
@@ -639,11 +614,7 @@
         </a>
       </div>
 
-      <p class="hero-meta">
-        <strong>Same faculty teaching online and on campus</strong>—no “robot instructors.”
-        ENWT is a strong fit if you’re comparing <em>online English degrees</em>, <em>professional writing programs</em>,
-        <em>technical writing</em>, or <em>TESOL pathways</em> in Denver and beyond.
-      </p>
+      <!-- ✅ Revision #1: removed the hero meta paragraph entirely -->
     </div>
   </div>
 </section>
@@ -670,7 +641,8 @@
       </div>
       <div class="bullet">
         <strong>Future-ready with AI</strong><br>
-        Learn to use AI ethically and effectively while sharpening the human skills that matter most: revision, style, persuasion, and judgment.
+        <!-- ✅ Revision #2: added “creativity” before “revision” -->
+        Learn to use AI ethically and effectively while sharpening the human skills that matter most: creativity, revision, style, persuasion, and judgment.
       </div>
     </div>
   </div>
@@ -782,7 +754,7 @@
   </div>
 </section>
 
-<!-- ✅ FAQ (added at the end, before CTA) -->
+<!-- FAQ -->
 <section id="faq">
   <div class="container">
     <div class="section-header">
@@ -803,7 +775,7 @@
           </button>
           <div class="faq-a" id="faq-a-1" role="region" aria-labelledby="faq-q-1">
             <p>
-              Yes—especially when it’s designed for today’s writing-focused careers. The English Writing, Rhetoric and Technology degree at CU Denver emphasizes professional writing, digital communication, rhetoric, creative nonfiction, and AI-supported writing practices. Students graduate with a portfolio of real projects and marketable skills that employers value across industries.
+              Yes—especially when it’s designed for today’s writing-focused careers. The English Writing, Rhetoric and Technology degree at CU Denver emphasizes professional writing, digital communication, rhetoric, creative nonfiction, and AI-supported writing practices. Students graduate with a portfolio of real projects and marketable skills valued across industries.
             </p>
           </div>
         </div>
@@ -818,7 +790,7 @@
               While traditional English degrees often focus primarily on literary analysis, English Writing, Rhetoric and Technology focuses on writing as a professional, civic, creative, and digital practice. Students study rhetoric, linguistics, professional and technical writing, digital media, creative nonfiction, and AI-supported writing.
             </p>
             <p>
-              At the same time, this degree offers a great deal of flexibility. Students can take courses in literature and creative writing alongside their English Writing, Rhetoric and Technology coursework, allowing them to shape the degree around their interests while still gaining practical, career-focused skills.
+              The degree also offers a lot of flexibility and room for students to take courses in literature and creative writing alongside their English Writing, Rhetoric and Technology coursework.
             </p>
           </div>
         </div>
@@ -830,14 +802,14 @@
           </button>
           <div class="faq-a" id="faq-a-3" role="region" aria-labelledby="faq-q-3">
             <p>
-              Yes. The English Writing, Rhetoric and Technology degree can be completed fully online, fully on campus, or through a combination of both. The same CU Denver faculty teach online and on-campus courses, so students receive the same high-quality instruction in every format.
+              Yes. The English Writing, Rhetoric and Technology degree can be completed fully online, fully on campus, or through a combination of both.
             </p>
           </div>
         </div>
 
         <div class="faq-item" data-open="false">
           <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-4" id="faq-q-4">
-            What kinds of jobs can I get with the English Writing, Rhetoric and Technology degree?
+            What kinds of jobs can I get with an English Writing, Rhetoric and Technology degree?
             <span class="faq-icon" aria-hidden="true">+</span>
           </button>
           <div class="faq-a" id="faq-a-4" role="region" aria-labelledby="faq-q-4">
@@ -851,9 +823,6 @@
               <li>Teaching English to speakers of other languages (TESOL)</li>
               <li>Grant and proposal writing</li>
             </ul>
-            <p>
-              Because strong writing, storytelling, and communication skills are in demand across fields, the English Writing, Rhetoric and Technology degree prepares students for a wide range of career paths.
-            </p>
           </div>
         </div>
 
@@ -864,7 +833,7 @@
           </button>
           <div class="faq-a" id="faq-a-5" role="region" aria-labelledby="faq-q-5">
             <p>
-              Yes. Students can earn stackable undergraduate certificates alongside the English Writing, Rhetoric and Technology degree, including Writing and Editing with AI, Technical and Professional Writing, Teaching English Language Learners (TESOL), Grant and Proposal Writing, and Narrative Nonfiction.
+              Yes. Students can earn stackable undergraduate certificates alongside the degree, including Writing and Editing with AI, Technical and Professional Writing, Teaching English Language Learners (TESOL), Grant and Proposal Writing, and Narrative Nonfiction.
             </p>
           </div>
         </div>
@@ -883,12 +852,12 @@
 
         <div class="faq-item" data-open="false">
           <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-7" id="faq-q-7">
-            Do students in English Writing, Rhetoric and Technology build a portfolio?
+            Do students build a portfolio?
             <span class="faq-icon" aria-hidden="true">+</span>
           </button>
           <div class="faq-a" id="faq-a-7" role="region" aria-labelledby="faq-q-7">
             <p>
-              Yes. Courses emphasize project-based learning, and students graduate with a professional portfolio that may include professional documents, digital projects, research-based writing, and creative nonfiction. This portfolio helps students demonstrate their skills to employers and graduate programs.
+              Yes. Students graduate with a professional portfolio that may include professional documents, digital projects, research-based writing, and creative nonfiction.
             </p>
           </div>
         </div>
@@ -900,7 +869,7 @@
           </button>
           <div class="faq-a" id="faq-a-8" role="region" aria-labelledby="faq-q-8">
             <p>
-              Absolutely. The degree provides strong preparation for graduate study in writing, rhetoric, creative nonfiction, linguistics, education, TESOL, digital media, and related fields, as well as for professional schools that value advanced communication and writing skills.
+              Absolutely. The degree provides strong preparation for graduate study in writing, rhetoric, creative nonfiction, linguistics, education, TESOL, digital media, and related fields.
             </p>
           </div>
         </div>
@@ -938,18 +907,15 @@
     items.forEach(function (item) {
       var btn = item.querySelector(".faq-q");
       var icon = item.querySelector(".faq-icon");
-
       if (!btn) return;
 
       btn.addEventListener("click", function () {
         var isOpen = item.getAttribute("data-open") === "true";
 
-        // toggle current
         item.setAttribute("data-open", String(!isOpen));
         btn.setAttribute("aria-expanded", String(!isOpen));
         if (icon) icon.textContent = isOpen ? "+" : "–";
 
-        // close others (accordion behavior)
         items.forEach(function (other) {
           if (other === item) return;
           other.setAttribute("data-open", "false");
